@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NodeInserts.Models
 {
-    internal class DominoStone
+    public class DominoStone
     {
         private int num1;
         private int num2;
@@ -19,12 +19,14 @@ namespace NodeInserts.Models
 
         public int GetNum1() { return num1; }
         public int GetNum2() { return num2; }
-        public int SetNum1() { return num1; }
-        public int SetNum2() { return num2; }
+        public void SetNum1(int num) { num1=num; }
+        public void SetNum2(int num) { num2 = num; }
 
-        public bool isExist(int num)
+        public bool IsExist(int num)
         {
-            if (num==num1||)
+            if (num==num1||num==num2)
+            { return true; }
+            return false;
         }
     }
 }

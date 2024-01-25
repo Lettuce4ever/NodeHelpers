@@ -5,7 +5,7 @@ namespace NodeInserts
 {
     internal class Program
     {
-        static public bool AreThereRecivers(Node<ShabatRecievers> lst, int day, int month, int year)
+        public static bool AreThereRecivers(Node<ShabatRecievers> lst, int day, int month, int year)
         {
             while (lst != null)
             {
@@ -17,9 +17,36 @@ namespace NodeInserts
             }
             return false;
         }
-        static public Node<ShabatRecievers> DeleteShabatReciever(Node<ShabatRecievers> lst, string name)
+       public static int HowManyMatches(Node<DominoStone> lst, DominoStone stone)
         {
-            return NodeHelper.Delete(, name);
+            int counter =0;
+            while (lst != null)
+            {
+                if (stone.IsExist(lst.GetValue().GetNum1())|| stone.IsExist(lst.GetValue().GetNum2()) )
+                {
+                    counter++;
+                }
+                lst = lst.GetNext();
+            }
+            return counter;
+        }
+
+        public static string Winner(Node<Participant> lst)
+        {
+            double bestWeightLost=0;
+            string winner = null;
+
+            while (lst != null)
+                .
+            {
+                if ((lst.GetValue().GetWeightBefore()- lst.GetValue().GetWeightAfter())/ lst.GetValue().GetWeightBefore()*100>bestWeightLost)
+                {
+                    bestWeightLost= lst.GetValue().GetWeightBefore() - lst.GetValue().GetWeightAfter()/ lst.GetValue().GetWeightBefore() * 100;
+                    winner = lst.GetValue().GetName();
+                }
+                lst = lst.GetNext();
+            }
+            return winner;
         }
         static void Main(string[] args)
         {
