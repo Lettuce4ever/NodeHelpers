@@ -37,7 +37,6 @@ namespace NodeInserts
             string winner = null;
 
             while (lst != null)
-                .
             {
                 if ((lst.GetValue().GetWeightBefore()- lst.GetValue().GetWeightAfter())/ lst.GetValue().GetWeightBefore()*100>bestWeightLost)
                 {
@@ -47,6 +46,20 @@ namespace NodeInserts
                 lst = lst.GetNext();
             }
             return winner;
+        }
+        public static int CheapestLine(CityBuses Buses, Station org, Station des)
+        {
+            int cheapestLine = 0;
+            double cheapestPrice = -1;
+            while (Buses != null)
+            {
+                if (Buses.GetBuses().GetValue().Cost(org, des)<cheapestPrice&& Buses.GetBuses().GetValue().Cost(org, des)>0)
+                {
+                    cheapestPrice = Buses.GetBuses().GetValue().Cost(org, des);
+                    cheapestLine = Buses.GetBuses().GetValue().GetLine();
+                }
+            }
+            return cheapestLine;
         }
         static void Main(string[] args)
         {
